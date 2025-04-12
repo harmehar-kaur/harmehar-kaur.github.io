@@ -16,7 +16,7 @@ timezone: Asia/Calcutta
 
 title: Cyber Writes # the main title
 
-tagline: A technical blog repository with all cybersecuiryt resources I could gather. # it will display as the subtitle
+tagline: A technical blog repository with all cybersecurity resources I could gather and learn. # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.
@@ -98,8 +98,7 @@ theme_mode: # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar: "https://www.canva.com/design/DAGkZyU_Mq0/bwTngCVy_M-RpIfAdVjYIQ/view?utm_content=DAGkZyU_Mq0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h15e2eb04f5"
-
+avatar: /assets/avatar.png
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
 social_preview_image: # string, local or CORS resources
