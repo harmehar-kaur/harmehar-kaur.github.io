@@ -42,7 +42,7 @@ There are 5 root keys:
 
 ---
 
-## Registry Transaction Logs and Backups
+### Registry Transaction Logs and Backups
 
 - **Transaction Logs:**  
   Stored as `.log` files in the same directory as the hives. They contain recent changes not yet committed to the hive.
