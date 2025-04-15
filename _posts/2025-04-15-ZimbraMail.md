@@ -241,6 +241,3 @@ Typically located in:
 | `nginx.error.log`      | `/opt/zimbra/log/nginx.error.log`| Logs NGINX-specific errors (SSL issues, timeouts, etc).                     |
 | `auditwatch.log`       | `/opt/zimbra/log/auditwatch.log` | Tracks admin UI activity. Helpful for change and access tracking.           |
 
----
-
-Let me know if you'd like this converted into a downloadable file or enhanced with diagrams or visuals!
