@@ -1,12 +1,12 @@
 ---
-title: Introduction to the Cyber Prefix
-date: 2024-04-01
-categories: [Cyber Security Fundamentals]
-tags: [Cyber]
-author: Harmehar Kaur
-image:
-  path: /assets/cyber-prefix.png
-  alt: Cyber
+title: Introduction to the Cyber Prefix  
+date: 2024-04-01  
+categories: [Cyber Security Fundamentals]  
+tags: [Cyber, Cyber security domains, BC, DP, pentesting, defensive security]  
+author: Harmehar Kaur  
+image:  
+  path: /assets/cyber-prefix.png  
+  alt: Cyber  
 ---
 
 ## Understanding the "Cyber" Prefix
@@ -35,83 +35,167 @@ Cybercrime involves illegal activities conducted through digital means, such as 
 ### 🔹 **Cyberwarfare**  
 Cyberwarfare refers to hostile actions conducted in the digital domain, often between nation-states or well-organized groups. These attacks are typically **asymmetric**, meaning that even actors with fewer resources can cause significant disruption or damage.
 
-The primary goals of cyberwarfare include:
+**Goals of cyberwarfare include:**
 
-- **Gaining strategic or military advantage** by stealing sensitive information or defense-related secrets  
-- **Disrupting or degrading a nation's critical infrastructure**, such as power grids, communication networks, or financial systems
-
-Cyberwarfare operations are capable of causing widespread chaos without the need for traditional armed conflict, making them a modern and persistent threat in global security.
+- Gaining strategic or military advantage  
+- Disrupting critical infrastructure such as power grids or communication systems
 
 ---
 
 ### 🔹 **Cybersecurity**  
-Cybersecurity is the field dedicated to protecting systems, networks, and data from unauthorized access, damage, or theft. It combines technology, processes, and practices to ensure the confidentiality, integrity, and availability of information.
+Cybersecurity is the field dedicated to protecting systems, networks, and data from unauthorized access, damage, or theft. It ensures confidentiality, integrity, and availability through a mix of technology, processes, and best practices.
 
 ---
 
 ### 🔹 **Cyberattacks**  
-Cyberattacks are deliberate attempts by threat actors to breach digital defenses. Their objectives may include:
+Cyberattacks are deliberate attempts by threat actors to breach digital defenses. Objectives include:
 
-- Stealing or modifying sensitive data  
-- Disrupting services or operations  
-- Damaging an organization’s reputation  
+- Stealing or altering sensitive data  
+- Disrupting operations or services  
+- Damaging reputation
 
-The actors involved are commonly referred to as **hackers**, **cybercriminals**, or **threat actors**.
+Common attackers include hackers, cybercriminals, and other threat actors.
 
 ---
 
 ### 🔹 **Cyberbullying**  
-Cyberbullying is a digital form of harassment or intimidation, often conducted via:
+Cyberbullying is digital harassment or intimidation conducted via:
 
 - Social media  
 - Messaging platforms  
 - Online games  
-- Text messages  
+- Text messages
 
-The intent is typically to harm, humiliate, or provoke the victim, sometimes leading to long-term psychological consequences.
+Its intent is often to harm, humiliate, or provoke victims, potentially causing long-term psychological effects.
 
 ---
 
 ### 🔹 **Cyberextortion**  
-Cyberextortion involves using digital means to threaten or blackmail victims, typically for financial gain. Common methods include:
+Cyberextortion uses digital means to blackmail victims, often for financial gain. Tactics include:
 
-- Releasing sensitive personal or organizational data  
-- Launching DDoS (Distributed Denial of Service) attacks unless ransom is paid
+- Threatening to release sensitive data  
+- Launching (or threatening) DDoS attacks
 
 ---
 
 ### 🔹 **Cyber Insurance**  
-Cyber insurance (or cyber-liability insurance) provides financial protection to businesses in case of cyberattacks. It helps cover:
+Cyber insurance offers financial protection to organizations affected by cyberattacks. It may cover:
 
-- Operational disruptions  
+- Operational disruption  
 - Recovery costs  
 - Legal liabilities and reputational damage
 
 ---
 
 ### 🔹 **Cyber Threats**  
-A cyber threat is any digital action or attempt to:
+A cyber threat is any attempt to:
 
-- Gain unauthorized access to systems  
+- Gain unauthorized access  
 - Disrupt services  
-- Steal, corrupt, or destroy data  
+- Steal, corrupt, or destroy data
 
-Cyber threats may originate from nation-states, cybercriminal groups, lone hackers, or even internal employees.
+Threats can come from nation-states, groups, individuals, or insiders.
 
 ---
 
 ### 🔹 **Cyberespionage**  
-Cyberespionage is the act of using digital tools to secretly gather intelligence — usually conducted by one organization or government against another. It’s typically aimed at:
+Cyberespionage involves using digital tools to secretly gather intelligence, often between governments or corporations.
 
-- Acquiring confidential or proprietary information  
-- Gaining a strategic or economic edge  
+**Targets include:**
+
+- Confidential or proprietary information  
+- Strategic or economic secrets
 
 ---
 
 ### 🔹 **Cyberterrorism**  
-Cyberterrorism is the use of the internet to conduct or threaten violent acts for political or ideological purposes. Tactics include:
+Cyberterrorism is the use of digital methods to conduct or threaten violent acts for political or ideological reasons.
 
-- Disrupting critical infrastructure  
-- Spreading fear and chaos  
-- Attacking government systems or public services
+**Common tactics include:**
 
+- Disrupting critical services  
+- Instilling fear or chaos  
+- Targeting government systems
+
+---
+
+## Cybersecurity Domains
+
+### 🔸 **Critical Infrastructure Security**
+
+- Secures systems vital to national security and public safety.  
+- Guided by frameworks like the NIST Cybersecurity Framework.
+
+### 🔸 **Network Security**
+
+- Protects wired and wireless networks from unauthorized access and threats.  
+- Shields against intrusions, both targeted and opportunistic.
+
+### 🔸 **Application Security**
+
+- Ensures applications and software are safe from attacks.  
+- Starts during the design phase to prevent vulnerabilities.
+
+### 🔸 **Information Security**
+
+- Prevents unauthorized access, alteration, or destruction of information.  
+- Enforces regulations like GDPR to protect sensitive data.
+
+### 🔸 **Operational Security (OPSEC)**
+
+- Identifies and protects data that could be exploited if exposed.  
+- Uses countermeasures to reduce risk of information leakage.
+
+### 🔸 **Cloud Security**
+
+- Safeguards data, applications, and services in cloud environments.  
+- Addresses internal and external threats during digital transformation.
+
+### 🔸 **Mobile Security**
+
+- Protects smartphones, tablets, and laptops from wireless threats.  
+- Controls access to sensitive mobile-stored data and IP.
+
+### 🔸 **Disaster Recovery and Business Continuity Planning (DR/BCP)**
+
+#### **Business Continuity (BC):**
+
+- Ensures critical business functions can continue during disruptions.  
+- Includes plans for accessibility, updates, and emergency response.
+
+#### **Disaster Recovery (DR):**
+
+- Activates when BC cannot sustain operations.  
+- Focuses on restoring IT systems to a reliable state.  
+- **Data Backups** are critical for recovery.
+
+#### **Key Differences:**
+
+- **BCP:** Maintains business functions.  
+- **DRP:** Restores IT systems.
+
+#### **Business Impact Analysis (BIA):**
+
+- Identifies critical functions and dependencies.  
+- Example: Billing department fire mitigated by BCP using alternative workspace.
+
+---
+
+### 🔸 **End-User Education**
+
+- Tackles the human element of cybersecurity.  
+- Aims to reduce risks like phishing and accidental breaches.
+
+**Includes:**
+
+- **Education:** Broad understanding of cyber threats  
+- **Training:** Task-specific actions for responding to alarms or attacks  
+- **Awareness:** Visual cues, reminders, and signage for best practices
+
+**Anti-Phishing Example:**
+
+- **Education:** Learn social engineering techniques  
+- **Training:** Practice identifying and responding to fake emails  
+- **Awareness:** Stay informed on evolving phishing strategies
+
+---
