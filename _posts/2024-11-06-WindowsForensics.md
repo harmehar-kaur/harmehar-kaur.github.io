@@ -1,15 +1,18 @@
 ---
-title: Windows Forensics Artefact: Registry Hives
+title: "Windows Forensics Artefact: Registry Hives"
 date: 2024-11-06
-categories: [Windows Forensics Artefacts, DFIR]
-tags: [Forensics, Registry,SAM, Security, System, Software]
-author: Harmehar Kaur
+categories: ["Windows Forensics Artefacts", "DFIR"]
+tags: ["Forensics", "Registry", "SAM", "Security", "System", "Software"]
+author: "Harmehar Kaur"
 image:
-  path: /assets/malware.png
-  alt: Cyber
+  path: /assets/forensics.jpg
+  alt: "Cyber"
 ---
 
+
 ## Windows Forensics Artefact: Registry Hives
+
+---
 
 The Windows Registry is a hierarchical database that stores system configuration information in the form of key-value pairs. It can be accessed via `regedit.exe` or by navigating to the path:  
 `C:\Windows\System32\Config`
@@ -60,19 +63,19 @@ There are 5 root keys:
 
 ## Registry Data Types
 
-| Name                          | Type Description                                                |
-|-------------------------------|------------------------------------------------------------------|
-| `REG_BINARY`                 | Raw binary data                                                 |
-| `REG_DWORD`                  | 32-bit integer                                                  |
-| `REG_QWORD`                  | 64-bit integer                                                  |
-| `REG_SZ`                     | Fixed-length text string                                        |
-| `REG_EXPAND_SZ`             | Variable-length data string                                     |
-| `REG_MULTI_SZ`              | Multiple strings separated by delimiter                         |
-| `REG_NONE`                   | No data type                                                    |
-| `REG_LINK`                   | Unicode string naming a symbolic link                          |
-| `REG_RESOURCE_LIST`          | Nested arrays for resource lists                                |
-| `REG_RESOURCE_LIST_REQUIREMENTS_LIST` | Lists possible hardware resources for drivers     |
-| `REG_FULL_RESOURCE_DESCRIPTOR` | Used by physical hardware devices                             |
+| Name                                  | Type Description                              |
+| ------------------------------------- | --------------------------------------------- |
+| `REG_BINARY`                          | Raw binary data                               |
+| `REG_DWORD`                           | 32-bit integer                                |
+| `REG_QWORD`                           | 64-bit integer                                |
+| `REG_SZ`                              | Fixed-length text string                      |
+| `REG_EXPAND_SZ`                       | Variable-length data string                   |
+| `REG_MULTI_SZ`                        | Multiple strings separated by delimiter       |
+| `REG_NONE`                            | No data type                                  |
+| `REG_LINK`                            | Unicode string naming a symbolic link         |
+| `REG_RESOURCE_LIST`                   | Nested arrays for resource lists              |
+| `REG_RESOURCE_LIST_REQUIREMENTS_LIST` | Lists possible hardware resources for drivers |
+| `REG_FULL_RESOURCE_DESCRIPTOR`        | Used by physical hardware devices             |
 
 > Timestamps in the registry reflect the **Last Write Time** and are stored in **UTC**.
 

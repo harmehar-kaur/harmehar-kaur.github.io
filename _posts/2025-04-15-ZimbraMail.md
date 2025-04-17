@@ -1,11 +1,11 @@
 ---
 title: Zimbra Mail Fundamentals and Security Concerns
-date: 2024-04-02
+date: 2025-04-15
 categories: [DFIR]
 tags: [Forensics, Zimbra]
 author: Harmehar Kaur
 image:
-  path: /assets/malware.png
+  path: /assets/Zimbra.jpg
   alt: Cyber
 ---
 
@@ -226,18 +226,18 @@ This structure is consistent across all Zimbra servers.
 Typically located in:  
 `/opt/zimbra/log/` and `/var/log/`
 
-| **Log File**           | **Path**                          | **Purpose**                                                                 |
-|------------------------|-----------------------------------|------------------------------------------------------------------------------|
-| `mailbox.log`          | `/opt/zimbra/log/mailbox.log`    | Primary app log. Webmail, IMAP, SMTP, SOAP, mailbox access, errors.         |
-| `zimbra.log`           | `/var/log/zimbra.log`            | MTA (Postfix) and Amavis logs. Mail flow and spam/virus info.               |
-| `audit.log`            | `/opt/zimbra/log/audit.log`      | Logs all login attempts and admin activity. Intrusion detection.            |
-| `clamd.log`            | `/opt/zimbra/log/clamd.log`      | Antivirus scanning by ClamAV.                                               |
-| `freshclam.log`        | `/opt/zimbra/log/freshclam.log`  | ClamAV virus definition updates.                                            |
-| `amavis.log`           | `/var/log/zimbra.log`            | Spam/virus filtering results by Amavisd.                                    |
-| `zmmtaconfig.log`      | `/opt/zimbra/log/zmmtaconfig.log`| Logs changes to MTA config. Troubleshooting mail routing issues.            |
-| `zmmailboxd.out`       | `/opt/zimbra/log/zmmailboxd.out` | Tomcat output and crash logs for mailboxd.                                  |
-| `zmswatch.log`         | `/opt/zimbra/log/zmswatch.log`   | Monitors service availability, restarts failed services.                    |
-| `nginx.access.log`     | `/opt/zimbra/log/nginx.access.log`| Reverse proxy logs. Tracks IPs, user access, response codes.                |
-| `nginx.error.log`      | `/opt/zimbra/log/nginx.error.log`| Logs NGINX-specific errors (SSL issues, timeouts, etc).                     |
-| `auditwatch.log`       | `/opt/zimbra/log/auditwatch.log` | Tracks admin UI activity. Helpful for change and access tracking.           |
+| **Log File**       | **Path**                           | **Purpose**                                                         |
+| ------------------ | ---------------------------------- | ------------------------------------------------------------------- |
+| `mailbox.log`      | `/opt/zimbra/log/mailbox.log`      | Primary app log. Webmail, IMAP, SMTP, SOAP, mailbox access, errors. |
+| `zimbra.log`       | `/var/log/zimbra.log`              | MTA (Postfix) and Amavis logs. Mail flow and spam/virus info.       |
+| `audit.log`        | `/opt/zimbra/log/audit.log`        | Logs all login attempts and admin activity. Intrusion detection.    |
+| `clamd.log`        | `/opt/zimbra/log/clamd.log`        | Antivirus scanning by ClamAV.                                       |
+| `freshclam.log`    | `/opt/zimbra/log/freshclam.log`    | ClamAV virus definition updates.                                    |
+| `amavis.log`       | `/var/log/zimbra.log`              | Spam/virus filtering results by Amavisd.                            |
+| `zmmtaconfig.log`  | `/opt/zimbra/log/zmmtaconfig.log`  | Logs changes to MTA config. Troubleshooting mail routing issues.    |
+| `zmmailboxd.out`   | `/opt/zimbra/log/zmmailboxd.out`   | Tomcat output and crash logs for mailboxd.                          |
+| `zmswatch.log`     | `/opt/zimbra/log/zmswatch.log`     | Monitors service availability, restarts failed services.            |
+| `nginx.access.log` | `/opt/zimbra/log/nginx.access.log` | Reverse proxy logs. Tracks IPs, user access, response codes.        |
+| `nginx.error.log`  | `/opt/zimbra/log/nginx.error.log`  | Logs NGINX-specific errors (SSL issues, timeouts, etc).             |
+| `auditwatch.log`   | `/opt/zimbra/log/auditwatch.log`   | Tracks admin UI activity. Helpful for change and access tracking.   |
 

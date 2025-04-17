@@ -5,7 +5,7 @@ categories: [Windows Forensics, DFIR]
 tags: [Forensics, Forensic Procedure, Chain of Custody]
 author: Harmehar Kaur
 image:
-  path: /assets/malware.png
+  path: /assets/forensics.jpg
   alt: Cyber
 ---
 
