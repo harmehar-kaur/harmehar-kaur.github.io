@@ -2,7 +2,7 @@
 title: Enhancing Network Security with Micro-Segmentation, IDS, and More
 date: 2024-05-12
 categories: [Network Security,  Networking Concepts]
-tags: micro-segmentation, IDS, SIEM, network security, IoT, VPN, redundancy
+tags: [micro-segmentation, IDS, SIEM, network security, IoT, VPN, redundancy]
 author: Harmehar Kaur
 image:
   path: /assets/networking.jpg
