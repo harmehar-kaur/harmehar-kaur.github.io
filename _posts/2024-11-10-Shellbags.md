@@ -5,7 +5,7 @@ categories: [DFIR]
 tags: [DFIR, Shellbags, Windows Registry, User Activity, Forensics]  
 author: Harmehar Kaur  
 image:  
-  path: /assets/attack.jpg  
+  path: /assets/forensics.jpg  
   alt: Shellbags Registry Artifact  
 ---
 

@@ -5,7 +5,7 @@ categories: [DFIR]
 tags: [DFIR, Windows Registry, Registry Artifacts, Digital Forensics, Incident Response]  
 author: Harmehar Kaur  
 image:  
-  path: /assets/attack.jpg  
+  path: /assets/forensics.jpg  
   alt: Windows Registry Artifacts  
 ---
 

@@ -5,7 +5,7 @@ categories: [DFIR]
 tags: [DFIR, System Boot, Startup, Shutdown, Forensics]  
 author: Harmehar Kaur  
 image:  
-  path: /assets/attack.jpg  
+  path: /assets/forensics.jpg 
   alt: System Boot and Shutdown Artifacts  
 ---
 

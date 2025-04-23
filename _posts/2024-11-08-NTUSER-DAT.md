@@ -5,7 +5,7 @@ categories: [DFIR]
 tags: [DFIR, NTUSER.DAT, Windows Registry, User Artifacts, Digital Forensics]  
 author: Harmehar Kaur  
 image:  
-  path: /assets/attack.jpg  
+  path: /assets/forensics.jpg  
   alt: NTUSER.DAT Registry Hive  
 ---
 

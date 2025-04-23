@@ -5,7 +5,7 @@ categories: [DFIR]
 tags: [DFIR, UserAssist, Windows Registry, Execution Artifacts, User Activity]  
 author: Harmehar Kaur  
 image:  
-  path: /assets/attack.jpg  
+  path: /assets/forensics.jpg 
   alt: UserAssist Forensic Artifact  
 ---
 

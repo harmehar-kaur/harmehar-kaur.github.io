@@ -5,7 +5,7 @@ categories: [DFIR]
 tags: [DFIR, Application Permissions, CapabilityAccessManager, Windows Forensics]  
 author: Harmehar Kaur  
 image:  
-  path: /assets/attack.jpg  
+  path: /assets/forensics.jpg  
   alt: CapabilityAccessManager in DFIR  
 ---
 

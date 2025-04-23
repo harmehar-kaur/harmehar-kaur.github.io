@@ -5,7 +5,7 @@ categories: [DFIR]
 tags: [DFIR, Jump Lists, Windows Forensics, User Activity, Recent Files]  
 author: Harmehar Kaur  
 image:  
-  path: /assets/attack.jpg  
+  path: /assets/forensics.jpg  
   alt: Jump Lists Registry Artifact  
 ---
 

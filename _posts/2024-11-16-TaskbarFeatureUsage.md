@@ -5,7 +5,7 @@ categories: [DFIR]
 tags: [DFIR, Taskbar, Feature Usage, User Interaction, Windows Forensics]  
 author: Harmehar Kaur  
 image:  
-  path: /assets/attack.jpg  
+  path: /assets/forensics.jpg  
   alt: Taskbar Feature Usage in DFIR  
 ---
 

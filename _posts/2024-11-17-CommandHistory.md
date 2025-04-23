@@ -5,7 +5,7 @@ categories: [DFIR]
 tags: [DFIR, Command History, MRU, Windows Artifacts, Run Dialog]  
 author: Harmehar Kaur  
 image:  
-  path: /assets/attack.jpg  
+  path: /assets/forensics.jpg  
   alt: Command History in DFIR  
 ---
 
