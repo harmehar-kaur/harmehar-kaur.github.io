@@ -1,55 +1,78 @@
 ---
-title: 
-date: 
-categories: 
-tags: 
-author: 
-image:
-  path: 
-  alt: 
+title: Understanding Windows Registry Artifacts in DFIR  
+date: 2024-11-07  
+categories: [DFIR]  
+tags: [DFIR, Windows Registry, Registry Artifacts, Digital Forensics, Incident Response]  
+author: Harmehar Kaur  
+image:  
+  path: /assets/attack.jpg  
+  alt: Windows Registry Artifacts  
 ---
 
-Now that I have found my interest in DFIR I would be diving into these a little more in details. FIrst I would be diving into each of the artefacts present in the windows system. 
-the topic of interest today is registry artifacts. 
+Now that I’ve found my interest in DFIR (Digital Forensics and Incident Response), I’m diving deeper into some of the core concepts—starting with Windows system artifacts.
 
-Windows registry is the collection of a database that store system configuration information in 
-form of key: value pairs (this information could be about hardware, software or user information 
-which could include current user, recently opened files, programs accessed, or devices 
-connected). Registry could be viewed by the executing the following utility which allows a user to 
-view and edit registry: regedit.exe. This allows a user to access a registry only in a live system.  
-▪ Registry Hives: 
-• Number of hives: 5 
-o DEFAULT  
-o SAM  
-o SECURITY 
-o SOFTWARE  
-o SYSTEM   
-• Registry hives are the group of keys, subkeys or values stored on the disk these are also 
-an artifact used in maximum cases because we cannot work on a live system. Stored in 
-the following path: C:\Windows\System32\Config 
-220 | H K a u r 
-• SAM Hive: 
-o SAM Hives store information about the user account, related to logins, or the 
-group information. The location at which the above information is stored is 
-SAM\Domains\Account\User. 
-▪ Registry Keys: 
-• There are 5 root keys present in the registry:  
-o HKEY_CURRENT_USER is a subkey of HKEY_USERS and stores information about 
-root of the configuration of the current user 
-o HKEY_USERS: stores all actively loaded user profiles 
-o HKEY_LOCAL_MACHINE: stores config information particular to the computer 
-o HKEY_CLASSES_ROOT is a subkey of HKEY_LOCAL_MACHINE stores information 
-about current programs opened using windows explorer. Stored information is 
-also stored under the following keys: 
-o HKEY_LOCAL_MACHINE: contains information about the default settings applied 
-to all users.  
-o HKEY_CURRENT_USER: contains settings that apply to current users 
-o HKEY_CURRENT_CONFIG: this key stored information about hardware profile 
-used by the local machine  
-▪ Registry transaction logs and backups  
-• Transaction log is the changelog of the registry hive and are stored as .log files in same 
-directory as the hives. These have the current changes which have not yet made their 
-way to a hive therefore have a more up-to-date information of the recent activity. 
-Backups on the other hand are the opposite of transaction logs. Hives located in the 
-config directory are backup every ten days to the following location:  
-o C:\Windows\System32\Config\RegBack 
+Today’s topic of interest is **registry artifacts**.
+
+---
+
+### What is the Windows Registry?
+
+The Windows Registry is essentially a collection of databases that store configuration information in key-value pairs. These details could relate to hardware, software, or user-specific information such as:
+
+- The current user
+- Recently opened files
+- Programs accessed
+- Devices connected
+
+You can view and edit the registry on a live system using the `regedit.exe` utility. It gives you access to the registry in a graphical interface, but remember—this only works on a live system.
+
+---
+
+### Registry Hives
+
+Windows has **five main registry hives**, which are essentially collections of keys, subkeys, and values stored on disk. These hives are frequently analyzed during forensic investigations, especially since live access isn’t always possible.
+
+These are the five hives:
+
+- **DEFAULT**  
+- **SAM**  
+- **SECURITY**  
+- **SOFTWARE**  
+- **SYSTEM**  
+
+You’ll find them stored at:  
+`C:\Windows\System32\Config`
+
+#### SAM Hive
+
+The **SAM (Security Account Manager)** hive contains information related to user accounts, login credentials, and group memberships. You’ll usually find this data under:  
+`SAM\Domains\Account\User`
+
+---
+
+### Registry Keys
+
+The registry is organized into **root keys** that act as entry points to different parts of the system’s configuration data. Here are the main ones:
+
+- **HKEY_CURRENT_USER**: A subkey of `HKEY_USERS`, it holds config info specific to the current user.
+- **HKEY_USERS**: Contains all loaded user profiles.
+- **HKEY_LOCAL_MACHINE**: Stores config data relevant to the entire computer.
+- **HKEY_CLASSES_ROOT**: A subkey of `HKEY_LOCAL_MACHINE`, this one deals with information about currently opened programs via Windows Explorer.
+- **HKEY_CURRENT_CONFIG**: Reflects the hardware profile currently being used by the local machine.
+
+---
+
+### Registry Transaction Logs and Backups
+
+There are also **transaction logs** and **backups** associated with the registry.
+
+- **Transaction logs** (`.log` files) are changelogs for the registry hives. These are more up-to-date than the hive files themselves, capturing recent activity that hasn’t yet been committed to the hive.
+  
+- **Backups**, in contrast, reflect older states of the registry. The registry hives in the config directory are backed up every ten days and stored at:  
+  `C:\Windows\System32\Config\RegBack`
+
+---
+
+That wraps up today’s dive into registry artifacts. There’s so much to explore in DFIR, and understanding these low-level system components is key to building a solid foundation.
+
+Stay tuned as I continue this learning journey—next up, more Windows artifacts!

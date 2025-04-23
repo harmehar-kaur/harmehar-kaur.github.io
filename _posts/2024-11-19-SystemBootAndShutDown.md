@@ -1,35 +1,57 @@
 ---
-title: 
-date: 
-categories: 
-tags: 
-author: 
-image:
-  path: 
-  alt: 
+title: "System Boot, Startup, and Shutdown: Key Forensic Artifacts"
+date: 2024-11-19  
+categories: [DFIR]  
+tags: [DFIR, System Boot, Startup, Shutdown, Forensics]  
+author: Harmehar Kaur  
+image:  
+  path: /assets/attack.jpg  
+  alt: System Boot and Shutdown Artifacts  
 ---
-System Boot and Startup and shutdown:  
-▪ System Boot and auto-start programs: 
-• System Boot programs are lists of programs that will run on system boot 
-• Registry keys also store information about programs that are run when a user logs on 
-(auto-start programs). 
-• Location  
-o NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Run 
-o NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\RunOnce 
-o SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce 
-o SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run 
-o SOFTWARE\Microsoft\Windows\CurrentVersion\Run  
-o SYSTEM\CurrentControlSet\Services  
-• If Start value is set to 0x02, then service application will start at boot (0x00 for drivers) 
-Interpretation 
-• Useful to find malware and to audit installed software  
-• This is not an exhaustive list of autorun locations 
-▪ System Last Shutdown time:  
-• The last time the system was shut down is also stored in windows and in windows XP the 
-number of times the shutdown is done is also recorded. This time could help 
-investigators the last activity time on system of interest and help detect user behaviour 
-and system anomalies along with Windows 64-bit FILETIME format. These are stored at 
-the following:  
-o SYSTEM\CurrentControlSet\Control\Windows (Shutdown Time) 
-o SYSTEM\CurrentControlSet\Control\Watchdog\Display (Shutdown Count – 
-WinXP only)  
+
+In today’s blog, we’re diving into **System Boot**, **Startup Programs**, and **Shutdown** artifacts in Windows, all of which are crucial in any **DFIR** investigation.
+
+---
+
+### System Boot and Auto-Start Programs
+
+**System Boot programs** are applications that run when the system boots up. Additionally, **auto-start programs** are those that run when a user logs on. These programs are often of interest when investigating **malware**, or simply auditing **installed software**.
+
+Here are some important locations to check for these artifacts:
+
+- `NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Run`
+- `NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\RunOnce`
+- `SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce`
+- `SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run`
+- `SOFTWARE\Microsoft\Windows\CurrentVersion\Run`
+- `SYSTEM\CurrentControlSet\Services`
+
+If the **Start** value is set to **0x02**, the service application will start during boot, while **0x00** indicates a driver.
+
+**Why is this important?**  
+These artifacts can be incredibly helpful in detecting **malware** or investigating what programs are set to run at startup. It’s worth noting that this is not an exhaustive list of autorun locations, but it provides a solid foundation for your investigation.
+
+---
+
+### System Last Shutdown Time
+
+Windows stores the **last shutdown time** of the system, which can be an important piece of evidence during investigations. In **Windows XP**, it even tracks the number of times the system has been shut down.
+
+This information can be helpful in determining the last activity on the system and spotting any **user behavior anomalies**.
+
+These shutdown artifacts can be found at:
+
+- `SYSTEM\CurrentControlSet\Control\Windows` (Shutdown Time)
+- `SYSTEM\CurrentControlSet\Control\Watchdog\Display` (Shutdown Count – WinXP only)
+
+The **Shutdown Time** is stored in the **Windows 64-bit FILETIME format**, making it an excellent source for determining the last system shutdown.
+
+---
+
+### Key Takeaways
+
+- Boot and auto-start programs help investigators determine which applications are set to launch at startup.
+- System shutdown artifacts provide insight into when the system was last used and can assist in building timelines.
+- These artifacts are crucial for uncovering potential **malware**, **user activity**, or **system anomalies**.
+
+Stay tuned for more posts on **Windows forensics** and how these artifacts help in **digital forensics investigations**!
