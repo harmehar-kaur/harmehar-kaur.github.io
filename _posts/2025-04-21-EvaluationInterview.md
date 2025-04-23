@@ -5,7 +5,7 @@ categories: [Cyber Security Fundamentals]
 tags: [Evaluation interview, SQL injection, Input sanitization, Broken access control, UAC]
 author: Harmehar Kaur 
 image:
-  path: /assets/cyber-prefix.jpg
+  path: /assets/cyber-prefix.png
   alt: Cyber Security Banner
 ---
 
@@ -112,12 +112,12 @@ Tor hides both the source and destination of traffic for privacy and security.
 
 ## 🖥️ Domain vs Workgroup
 
-| Feature              | Domain                          | Workgroup                      |
-|----------------------|----------------------------------|--------------------------------|
-| Management           | Centralized (via AD)             | Decentralized (per device)     |
-| User Authentication  | Centralized                      | Local to each machine          |
-| Scalability          | Supports large networks          | Best for small setups          |
-| Security             | High (policies, GPOs)            | Basic                          |
+| Feature             | Domain                  | Workgroup                  |
+| ------------------- | ----------------------- | -------------------------- |
+| Management          | Centralized (via AD)    | Decentralized (per device) |
+| User Authentication | Centralized             | Local to each machine      |
+| Scalability         | Supports large networks | Best for small setups      |
+| Security            | High (policies, GPOs)   | Basic                      |
 
 ---
 
