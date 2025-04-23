@@ -1,46 +1,61 @@
 ---
-title: 
-date: 
-categories: 
-tags: 
-author: 
-image:
-  path: 
-  alt: 
+title: Understanding Account Usage in DFIR  
+date: 2024-12-15  
+categories: [DFIR]  
+tags: [DFIR, Account Usage, Microsoft Cloud, User Access Logging, Forensics]  
+author: Harmehar Kaur  
+image:  
+  path: /assets/forensics.jpg  
+  alt: Account Usage in DFIR  
 ---
-Account usage: 
-o Cloud account details:  
-▪ Microsoft Cloud Accounts store account information in the SAM hive, including the email 
-address associated with the account. Location  
-▪ SAM\Domains\Account\Users\\InternetUserName  
-▪ InternetUserName value contains the email address tied to the account. The presence of this 
-value identifies the account as a Microsoft cloud account  
-o Last Login and Password Change  
-▪ The SAM registry hive maintains a list of local accounts and associated configuration 
-information.  
-▪ SAM\Domains\Account\Users  
-▪ Accounts listed by their relative identifiers (RID) Last login time, last password change, login 
-counts, group membership, account creation time and more can be determined  
-o User access logging  
-▪ this included in windows server version from 2012 and later. This is used to identify things like 
-user access and system-related statistical data in near real-time. User Access Logging is a feature 
-included with server versions of Microsoft Windows, enabled on Windows Server System 2012 
-and later. It collects user access and system-related statistical data in near real-time.  
-▪ The data is stored in the directory `C:\Windows\System32\LogFiles\SUM\`, which contains files 
-such as `SystemIdentity.mdb` or `Current.mdb` along with one or more GUID-based files that 
-should exist in this location. The feature tracks the active UAL database, which contains basic 
-server configuration information. Data from this database is copied to ending `.mdb` files. It 
-236 | H K a u r 
-retains data from the current year, the previous year, and up to two years prior, while archived 
-events are retained for 24 hours.  
-▪ Additionally, the IP address is tracked to identify the location from which associated activity 
-originated, while the destination is the system from which UAL was obtained. This tracking 
-capability can be used to identify abnormal access to systems and profile lateral movement from 
-various clients to servers.  
-▪ The system records the UTC timestamp of the first access for the year (InsertDate) for a specific 
-user, including details such as the source IP and role. It also captures the UTC timestamp of the 
-last access for the year (LastAccess).  
-▪ The logging feature is closely associated with file servers and SMB access.  User Access Logging is 
-designed to provide system administrators with insights into server usage on Windows servers. 
-It maintains a detailed record of the types of services accessed on a server, the usernames 
-associated with access, and the source IP addresses from which the access occurred. 
+
+When investigating **Digital Forensics and Incident Response (DFIR)**, tracking **account usage** can provide critical insights into user activity, especially when dealing with cloud-based accounts and user access logs. Let’s dive into the various sources where this information is stored and how it can be used during an investigation.
+
+---
+
+### Cloud Account Details
+
+Microsoft Cloud accounts store crucial account information in the **SAM (Security Account Manager)** hive. This includes the email address tied to the cloud account, which helps in identifying whether the account is a Microsoft cloud account.
+
+- **Location**:  
+  - `SAM\Domains\Account\Users\<InternetUserName>`  
+    - The `InternetUserName` value contains the email address associated with the account. The presence of this value indicates the account is a Microsoft cloud account.
+
+---
+
+### Last Login and Password Change
+
+The **SAM registry hive** keeps track of local accounts and configuration details such as the last login time, password changes, login counts, group memberships, and account creation times.
+
+- **Location**:  
+  - `SAM\Domains\Account\Users`  
+    - Accounts are listed by their **Relative Identifiers (RIDs)**, and you can extract critical information like login time and password change history.
+
+---
+
+### User Access Logging
+
+Introduced in **Windows Server 2012** and later, **User Access Logging (UAL)** is an essential feature for tracking user access and system-related data in near real-time. It’s particularly useful in identifying abnormal access patterns, profiling lateral movements, and understanding how users are interacting with systems.
+
+- **Location**:  
+  - `C:\Windows\System32\LogFiles\SUM\`  
+    - This directory contains files such as `SystemIdentity.mdb`, `Current.mdb`, and other GUID-based files.  
+    - The **UAL database** tracks active user and system activity data, including the source IP address, role, and UTC timestamps for both first and last access.
+
+The system retains data for the current year, the previous year, and up to two years prior, while archived events are stored for 24 hours. This allows for efficient tracking of user access patterns and potential suspicious activity across multiple systems.
+
+---
+
+### Key Insights from User Access Logs
+
+- **IP Tracking**: The system records the source IP address from which activity originates, helping investigators pinpoint abnormal access points.  
+- **Profile Lateral Movement**: UAL logs are especially valuable in tracking lateral movement from clients to servers, revealing unauthorized access attempts or unauthorized privilege escalation.
+- **Access Timestamps**: The UTC timestamps (InsertDate and LastAccess) provide a precise timeline of when access occurred.
+
+User Access Logging is especially helpful for administrators in understanding the overall usage of services on a server. It details which usernames were involved, the services accessed, and the source IP addresses, providing an extensive view of server interactions.
+
+---
+
+By understanding where and how account usage data is stored, you can uncover valuable insights into user activity, login attempts, and potential security incidents. Always remember to check both local and cloud-based sources to gather a comprehensive view of what’s happening on your systems.
+
+---

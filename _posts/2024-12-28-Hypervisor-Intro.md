@@ -1,27 +1,41 @@
 ---
-title: 
-date: 
-categories: 
-tags: 
-author: 
+title: "Getting Started with Hypervisor-Based VM Forensics"
+date: 2024-12-28
+categories: [DFIR]
+tags: [hypervisor, virtualization, vm forensics, type 1 hypervisor, type 2 hypervisor]
+author: Harmehar Kaur
 image:
-  path: 
-  alt: 
+  path: /assets/forensics.jpg
+  alt: hypervisor-based forensics
 ---
-after linux systems i also wanted to lay the ground work for hypervisor based systems. there are a scarce amount of resources found out here on hypervisor based vm forensics but i will gather whatever i can get and journal those here. 
 
-1	WHAT ARE HYPERVISORS?
-•	A hypervisor is utilized to establish and oversee a virtual computer within a host machine. It generally operates as a lightweight operating system that lacks hardware drivers. The hypervisor manages the allocation of resources needed by each separate virtual machine in real-time by intercepting and simulating all operating system functions within the virtual environment. It efficiently divides and distributes hardware resources, including CPU, memory, and I/O devices.
-2	TYPES OF HYPERVISORS
-2.1	TYPE 1 HYPERVISORS
-•	A type 1 hypervisor runs right on the underlying computer's physical hardware, interacting directly with its central processing unit (CPU), memory and physical storage. 
-•	Also referred to as hypervisors as bare-metal hypervisors or native hypervisors. 
-•	A type 1 hypervisor takes the place of the host operating system.
-•	Has direct access to resources, which makes its performance comparable to that of native execution. 
-•	Microsoft’s Hyper-V, Xen, VMware ESXi are some examples of type-I hypervisors that are widely used. 
-2.2	TYPE 2 HYPERVISORS
-•	A type 2 hypervisor—also referred to as an embedded or hosted hypervisor—doesn't run directly on the underlying hardware. Instead, it runs as an application in an OS. Type 2 hypervisors rarely show up in server-based environments. 
-•	They are suitable for individual PC users needing to run different operating systems.
-•	Often feature additional toolkits for users to install into the guest OS. These tools provide enhanced connections between the guest and the host OS, usually enabling the user to cut and paste between the two or access host OS files and folders from within the guest VM.
-•	Type-II virtualization incurs additional overhead due to the layering of the VMM on top of the host OS when servicing resource requests from VMs. 
-•	VMware Workstation/Server/Player, Virtual PC and VirtualBox are some examples of type-II hypervisors widely used on host operating systems. 
+After exploring Linux systems, I wanted to start laying the groundwork for hypervisor-based systems. There’s a real scarcity of accessible resources out there for hypervisor-based VM forensics, but I’ll gather whatever I can and journal my findings here. Let's break it down.
+
+## What Are Hypervisors?
+
+- A hypervisor is used to create and manage virtual machines (VMs) on a host system. Think of it as a lightweight operating system that doesn't need hardware drivers itself.
+- It simulates and manages hardware access for each virtual machine by intercepting and emulating operating system-level calls.
+- It divides up physical system resources — CPU, memory, I/O — and distributes them in real-time to virtual machines.
+
+## Types of Hypervisors
+
+### Type 1 Hypervisors
+
+- **Also known as bare-metal or native hypervisors**, these run *directly* on the host hardware.
+- They don't require a host OS and instead act as the base operating environment.
+- Since they have direct access to hardware, performance is usually close to native execution.
+- Some common examples include:
+  - Microsoft Hyper-V
+  - Xen
+  - VMware ESXi
+
+### Type 2 Hypervisors
+
+- Also called **hosted hypervisors**, these run *on top* of an existing operating system.
+- They're more suited for desktop and experimental use rather than production servers.
+- These hypervisors often come with toolkits that enhance interaction between guest and host systems — like sharing clipboard or file systems.
+- However, there's an extra performance cost due to the layering of the host OS.
+- Common examples include:
+  - VMware Workstation / Server / Player
+  - VirtualBox
+  - Virtual PC

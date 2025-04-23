@@ -1,82 +1,96 @@
 ---
-title: 
-date: 
-categories: 
-tags: 
-author: 
-image:
-  path: 
-  alt: 
+title: Logon Event Types and Service Events in DFIR  
+date: 2024-12-12  
+categories: [DFIR]  
+tags: [DFIR, Logon Events, Windows, Event Logs, Security, Malware, Persistence]  
+author: Harmehar Kaur  
+image:  
+  path: /assets/forensics.jpg  
+  alt: Logon Event Logs  
 ---
-Logon Event Types: 
-• These store information about the nature of account authorisations on a system. These 
-enable investigators to gather knowledge about date, time, username, hostname, and 
-success/failure status of a logon, along with determining by exactly what means a logon 
-was attempted.  
-• Win7+: %SYSTEM ROOT%\System32\winevt\logs\Security.evtx  
-• Event ID 4624  
-Logon type  
-2 
-Explanation 
-Logon via console 
-3 
-Network logon  
-4 
-Batch logon 
-5 
-Windows service logon  
-7 
-Credentials used to unlock screen; 
-RDP session reconnect  
-8 
-Network logon sending 
-credentials(cleartext) 
-233 | H K a u r 
-9 
-10 
-Different credentials used than 
-logged on user 
-Remote interactive logon  
-11 
-12 
-Cache credentials used to logon  
-Cached remote interactive (like 
-type 10) 
-13 
-Cached unlock (like type 7)
 
-Successful/Failed Logons: 
-• The information about profile account creation, attempted logons, and account usage is 
-also stored in windows system at the location as follows:   
-o Win7+: % SYSTEM ROOT%\System32\winevt\logs\Security.evtx  
-4624 
-4625 
-Successful logon  
-Failed logon  
-4634 | 4647 
-4648 
-Successful log off 
-Logon using explicit 
-credential (runas) 
-4672 
-Account logon with 
-superuser rights (admin) 
-4720 
-An account was created  
-▪ Service Events: 
-• Investigators may analyse logs for suspicious Windows service creation, persistence, and 
-services started or stopped around the time of a suspected compromise. Service events 
-also record account information. A large amount of malware and worms in the wild 
-utilize Services more specific ones that are started on boot illustrate persistence 
-(desirable in malware). Services can crash due to attacks like process injection. These are 
-stored in the following location:  
-o Win7+: %SYSTEM ROOT%\System32\winevt\logs\System.evtx  
-o Win10+: %SYSTEM ROOT%\System32\winevt\logs\Security.evtx  
-• Most relevant events are present in the System Log:  
-o 7034 – Service crashed unexpectedly  
-o 7035 – Service sent a Start/Stop control  
-o 7036 – Service started or stopped  
-o 7040 – Start type changed (Boot | On Request | Disabled)  
-o 7045 – A service was installed on the system (Win2008R2+)  
-• Auditing can be enabled in the Security log on Win10+: 4697 – A service was installed on 
-the system (from Security log)  
+When diving into **Digital Forensics and Incident Response (DFIR)**, one of the key areas to explore is **logon events**. These events provide crucial insights into how accounts are being accessed, by whom, and from where. They offer an in-depth view of user activity, helping investigators track any unusual logon patterns that may indicate suspicious activity.
+
+---
+
+### Understanding Logon Event Types
+
+Logon events capture a range of details about **account authorizations** on a system. These events record when a user attempts to log on, providing essential information such as:
+
+- **Date and Time** of logon
+- **Username**
+- **Hostname**
+- **Success or failure** of the logon attempt
+- The **method** used for the logon
+
+This information can help an investigator understand the context of a logon attempt, whether it’s legitimate or potentially malicious.
+
+---
+
+### Location of Logon Event Logs
+
+The logon events are stored in the **Security.evtx** file, which can be found in the following location:
+
+- **Location**:  
+  `Win7+: %SYSTEMROOT%\System32\winevt\logs\Security.evtx`
+
+---
+
+### Event ID 4624: Understanding Different Logon Types
+
+**Event ID 4624** records successful logons, and it provides important context for the logon attempt, including the logon type. Here’s a breakdown of the logon types you may encounter:
+
+- **Type 2**: Logon via console
+- **Type 3**: Network logon
+- **Type 4**: Batch logon
+- **Type 5**: Windows service logon
+- **Type 7**: Credentials used to unlock screen; RDP session reconnect
+- **Type 8**: Network logon sending credentials (cleartext)
+- **Type 9**: Different credentials used than logged-on user
+- **Type 10**: Remote interactive logon
+- **Type 11**: Cache credentials used to log on
+- **Type 12**: Cached remote interactive (similar to Type 10)
+- **Type 13**: Cached unlock (similar to Type 7)
+
+Each type tells you the nature of the logon attempt, whether it was via a direct console, network access, or even cached credentials.
+
+---
+
+### Successful and Failed Logons
+
+Windows also keeps track of successful and failed logon attempts. This information is essential in identifying unauthorized access attempts or any irregularities in account usage. You’ll find these events recorded as:
+
+- **4624**: Successful logon
+- **4625**: Failed logon
+- **4634**: Successful logoff
+- **4647**: Logoff initiated by the user
+- **4648**: Logon using explicit credentials (runas)
+- **4672**: Account logon with superuser rights (admin privileges)
+- **4720**: An account was created
+
+These events help provide a clear picture of account activity, highlighting both successful access and potential failed attempts.
+
+---
+
+### Service Events and Malware Persistence
+
+**Service events** are another crucial area to explore when investigating suspicious activity. Windows services play a key role in malware persistence—many malware strains leverage services to maintain access to a compromised system. These events can help identify unusual or unauthorized services being installed, started, or stopped.
+
+Here’s a list of relevant service events you should look for:
+
+- **7034**: Service crashed unexpectedly
+- **7035**: Service sent a Start/Stop control
+- **7036**: Service started or stopped
+- **7040**: Start type changed (Boot | On Request | Disabled)
+- **7045**: A service was installed on the system (Win2008R2+)
+- **4697**: A service was installed on the system (from Security log in Win10+)
+
+Investigators should pay particular attention to services that are started on boot or those that persist across reboots—these could indicate malware leveraging Windows services for continued access.
+
+---
+
+### Conclusion
+
+Understanding **logon events** and **service events** is essential for tracking user behavior and detecting potential unauthorized activity. By analyzing these event logs, investigators can build timelines, identify malicious actions, and gain critical insight into the security state of a system. Whether it's tracking **failed logons** or identifying **persistent malware** via services, these logs are invaluable tools in a DFIR investigation.
+
+---

@@ -1,92 +1,140 @@
 ---
-title: 
-date: 
-categories: 
-tags: 
-author: 
-image:
-  path: 
-  alt: 
+title: Linux Forensic Artefacts You Should Know About  
+date: 2024-12-24  
+categories: [DFIR]  
+tags: [Linux Forensics, System Artefacts, Incident Response, Forensic Analysis, DFIR]  
+author: Harmehar Kaur  
+image:  
+  path: /assets/forensics.jpg  
+  alt: Linux System Artefacts Forensics  
 ---
-3	ARTEFACTS IN LINUX SYSTEM
-	Forensic investigations on Linux systems involve identifying, extracting, and analyzing various artifacts that provide insights into system activity, user behaviours, and potential malicious actions. Below is an overview of key artifact locations and their relevance in Linux forensics.
-3.1	SYSTEM INFORMATION
-•	Location/Commands: 
-o	uname -a (system kernel and version info)
-o	/proc/ directory (e.g., /proc/version, /proc/cpuinfo)
-o	dmesg (kernel message buffer)
-•	Purpose: 
-o	Provides details about the system environment, kernel version, and hardware, which can help identify vulnerabilities or specific configurations targeted by attackers.
-3.2	/VAR/LOG DIRECTORY
-•	Common Logs: 
-o	auth.log or secure (authentication attempts)
-o	syslog (general system events)
-o	apache2/access.log and apache2/error.log (web server activity)
-o	dpkg.log (package installations and removals)
-•	Purpose: 
-o	Logs can reveal user activity, system events, login attempts, package installations, and potential anomalies.
-3.3	SHELL HISTORY
-•	Location: 
-o	~/.bash_history (Bash shell history)
-o	Similar files for other shells: ~/.zsh_history, ~/.ash_history
-•	Purpose: 
-o	Provides a record of commands executed by the user.
-o	Helps trace malicious commands or system interactions.
-o	Beware: History can be cleared or tampered with by attackers.
-3.4	FILESYSTEM
-•	Key Areas: 
-o	/etc/ (configuration files)
-o	/home/ (user directories)
-o	/tmp/ (temporary files, often used by malware)
-•	Purpose: 
-o	Tracks file creation, modification, and access times.
-o	Metadata reveals file ownership and permissions.
-o	Identifies recently modified or suspicious files.
-3.5	USER ACCOUNTS
-•	Key Files: 
-o	/etc/passwd (user account information)
-o	/etc/shadow (hashed passwords)
-o	/etc/group (group memberships)
-•	Purpose: 
-o	Identifies unauthorized users or privilege escalation attempts.
-o	Tracks changes in user accounts and group memberships.
-3.6	APPLICATION DATA
-•	Common Locations: 
-o	Application-specific directories in /var/ or /etc/
-o	User-specific application data in ~/.config/
-•	Purpose: 
-o	Analyzes application logs, preferences, and cached data for evidence.
-o	Reconstructs user activities and application usage patterns.
-3.7	NETWORKING
-•	Key Artifacts: 
-o	/var/log/syslog (network-related logs)
-o	/var/log/messages (network service logs)
-o	Firewall logs (e.g., iptables or ufw)
-o	Open connections: netstat, ss, or /proc/net/
-•	Purpose: 
-o	Tracks network activity, including incoming/outgoing connections.
-o	Identifies unusual traffic, such as connections to suspicious IPs or ports.
-3.8	SERVICES
-•	Key Locations: 
-o	/etc/systemd/system/ (systemd service configurations)
-o	/etc/init.d/ (legacy init services)
-o	Cron jobs: /var/spool/cron/, ~/.cron*
-•	Purpose: 
-o	Examines running services for unauthorized or malicious processes.
-o	Tracks scheduled tasks that could execute malware or maintain persistence.
-3.9	EXTERNAL DEVICES
-•	Key Locations: 
-o	/media/ (mounted external devices)
-o	/dev/ (device files)
-o	Logs: /var/log/syslog, /var/log/messages for connection events.
-•	Purpose: 
-o	Tracks data transfers to/from USB drives or other external devices.
-o	Identifies unauthorized use of external storage for data exfiltration.
-3.10	REMOTE CONNECTIONS
-•	Key Artifacts: 
-o	SSH logs: /var/log/auth.log or /var/log/secure
-o	VPN configurations/logs (application-specific locations)
-o	Command: last (shows recent logins, including remote sessions)
-•	Purpose: 
-o	Analyses remote access to the system.
-o	Identifies unauthorized connections or potential attackers’ IPs.
+
+When it comes to investigating a compromised Linux system, artefacts are everything. These bits of leftover evidence tell the story—what was done, by whom, and how. Whether you're a digital forensic analyst or just curious about what's under the hood, here's a practical walkthrough of the key artefacts that help piece things together during a Linux investigation.
+
+---
+
+### System Information
+
+Understanding the system's baseline configuration is the first step.
+
+- `uname -a` – Displays kernel and version info.
+- `/proc/version`, `/proc/cpuinfo` – Detailed system specs.
+- `dmesg` – Kernel ring buffer messages.
+
+**Why it matters:** Knowing the kernel version and hardware specs can reveal known vulnerabilities or whether a targeted exploit might have been used.
+
+---
+
+### /var/log Directory
+
+Logs are the black boxes of Linux systems—they record everything if configured right.
+
+- `auth.log` or `secure` – Authentication logs.
+- `syslog` – System-wide events.
+- `apache2/access.log`, `apache2/error.log` – Web server activity.
+- `dpkg.log` – Software package activity.
+
+**Why it matters:** These logs can show user actions, system changes, login attempts, or suspicious events at specific times.
+
+---
+
+### Shell History
+
+A simple yet often revealing artefact.
+
+- `~/.bash_history` – Bash shell history.
+- `~/.zsh_history`, `~/.ash_history` – Other shell types.
+
+**Why it matters:** You can trace the attacker’s command-line activities. Just be aware that history files can be wiped or altered.
+
+---
+
+### Filesystem
+
+The filesystem is where most of the action happens, and it leaves trails.
+
+- `/etc/` – Critical configuration files.
+- `/home/` – User data and personal directories.
+- `/tmp/` – Temporary files; often abused for storing or running malware.
+
+**Why it matters:** File metadata shows ownership, access times, and can lead you to suspicious files or recent changes.
+
+---
+
+### User Accounts
+
+Attackers love adding users or escalating privileges quietly.
+
+- `/etc/passwd` – User accounts.
+- `/etc/shadow` – Hashed passwords.
+- `/etc/group` – Group memberships.
+
+**Why it matters:** Spotting new users or changes to existing ones could be the first clue to a breach.
+
+---
+
+### Application Data
+
+Applications leave behind useful evidence of how they were used—or misused.
+
+- Application data in `/var/` or `/etc/`.
+- User-specific settings in `~/.config/`.
+
+**Why it matters:** These can reveal usage patterns, cached credentials, or logs of attacker activities.
+
+---
+
+### Networking
+
+If there’s one thing attackers rely on, it’s networking. And it leaves a trail.
+
+- `/var/log/syslog` – General network logs.
+- `/var/log/messages` – System-level logging including network services.
+- Firewall logs – `iptables`, `ufw`, etc.
+- `/proc/net/`, or tools like `netstat` and `ss` – Show active connections.
+
+**Why it matters:** You can spot connections to shady IPs, unexpected open ports, or unusual traffic patterns.
+
+---
+
+### Services
+
+Services are prime candidates for persistence mechanisms.
+
+- `/etc/systemd/system/` – Modern service configurations.
+- `/etc/init.d/` – Legacy service scripts.
+- Cron jobs:  
+  - `/var/spool/cron/`  
+  - `~/.cron*`
+
+**Why it matters:** Malicious services or scheduled jobs could indicate backdoors or scheduled payloads.
+
+---
+
+### External Devices
+
+Removable media often play a role in data exfiltration or malware delivery.
+
+- `/media/` – Mounted external devices.
+- `/dev/` – Device files.
+- Logs:  
+  - `/var/log/syslog`  
+  - `/var/log/messages`
+
+**Why it matters:** Detects USB usage or external drives used to extract or deliver files.
+
+---
+
+### Remote Connections
+
+Remote access is common in attacks—and it’s traceable.
+
+- `/var/log/auth.log` or `/var/log/secure` – SSH logs.
+- VPN logs (depends on software used).
+- Command: `last` – Shows recent logins and IPs.
+
+**Why it matters:** Helps pinpoint unauthorized remote sessions and potential attacker IPs.
+
+---
+
+That wraps up the major artefacts you should be tracking in a Linux forensic investigation. Each of these tells a part of the bigger story—and when you line them up, the incident becomes much clearer.

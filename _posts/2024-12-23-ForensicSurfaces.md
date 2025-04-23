@@ -1,60 +1,96 @@
 ---
-title: 
-date: 
-categories: 
-tags: 
-author: 
-image:
-  path: 
-  alt: 
+title: "Detecting Incidents on Linux Disks: Key Forensic Surfaces" 
+date: 2024-12-23  
+categories: [DFIR]  
+tags: [Linux Forensics, Disk Analysis, Incident Response, Filesystem Forensics, DFIR]  
+author: Harmehar Kaur  
+image:  
+  path: /assets/forensics.jpg  
+  alt: Linux Filesystem Forensics  
 ---
-2	DETECTING INCIDENTS ON LINUX DISK: KEY FORENSIC SURFACES
-2.1	OVERVIEW
-	Linux disk surfaces refer to filesystem areas where attackers might leave traces of their activities. Analyzing these surfaces is critical for forensic investigations and understanding the scope of a security incident. This guide explores common areas and methods to detect malicious activities on Linux filesystems.
-________________________________________
-2.2	KEY DISK SURFACES AND THEIR FORENSIC SIGNIFICANCE
-2.2.1	CONFIGURATION FILES
-	Attackers may modify sensitive configuration files to create backdoors or elevate privileges. These files are essential for forensic analysis:
-o	/etc/passwd
-	Stores user account details (excluding passwords).
-	Key fields: username, user ID (UID), group ID (GID), home directory, and shell.
-o	/etc/shadow
-	Contains hashed passwords.
-	Restricted access; often targeted in brute-force or privilege escalation attempts.
-o	/etc/group
-	Defines groups and their associated users.
-	Review for unauthorized group memberships or the creation of new groups.
-o	/etc/sudoers
-	Configures sudo permissions.
-	Look for modifications that grant attackers elevated privileges.
-2.2.2	Investigating Installed Packages
-	Attackers may install malicious packages to execute harmful scripts or maintain persistence. Forensic analysts should focus on:
-o	Listing Installed Packages
-	Command: dpkg -l
-	Examine the list for suspicious or unknown packages.
-o	Examining dpkg.log
-	Log file: /var/log/dpkg.log
-	Look for unusual installation activities and timestamps.
-	Example command: grep " install " /var/log/dpkg.log
-2.2.3	Malicious Scripts in Package Installations
-	Some malicious packages include scripts executed automatically upon installation:
-o	Package Metadata
-	Stored in the DEBIAN/control file within the package directory.
-	Review metadata for unusual descriptions or maintainers.
-o	Post-Installation Scripts
-	Malicious scripts often reside in DEBIAN/postinst.
-	Check permissions and execution history of such scripts.
-o	File Permissions
-	Verify permissions to ensure only trusted users can modify or execute these scripts.
-	Command: chmod to modify permissions.
-2.2.4	Key Directories
-	Attackers may place malicious files in critical directories:
-o	System Services
-	Path: /etc/systemd/system/
-	Look for unauthorized services that execute malicious processes at startup.
-o	Cron Jobs
-	Path: /var/spool/cron/
-	Review cron jobs for scheduled execution of malicious scripts.
-o	Temporary Files
-	Path: /tmp/
-	Temporary files may host malicious executables or scripts.
+
+When an incident hits a Linux system, a deep dive into the disk can reveal a treasure trove of forensic evidence. These are the spots where attackers often leave traces—whether deliberately or inadvertently. In this post, we’ll break down key disk surfaces on a Linux machine that should be on your radar during forensic investigations.
+
+---
+
+### Overview
+
+Linux disk surfaces refer to filesystem areas where traces of malicious activity may linger. From tampered config files to suspicious scripts hidden deep in system folders, each of these surfaces tells part of the story. Whether you’re investigating a breach or auditing for security posture, these are essential spots to examine.
+
+---
+
+### Key Disk Surfaces and Their Forensic Significance
+
+#### Configuration Files
+
+Attackers often tweak configuration files to create persistence, escalate privileges, or just avoid detection. These files should be reviewed closely:
+
+- `/etc/passwd`  
+  - Stores user account details (excluding passwords).
+  - Key fields include: username, UID, GID, home directory, shell.
+
+- `/etc/shadow`  
+  - Contains hashed user passwords.
+  - Restricted access makes it a target for brute-force and privilege escalation attacks.
+
+- `/etc/group`  
+  - Maps users to groups.
+  - Check for unauthorized group memberships or the creation of suspicious groups.
+
+- `/etc/sudoers`  
+  - Governs sudo access.
+  - Look for edits that provide attackers elevated privileges.
+
+---
+
+#### Investigating Installed Packages
+
+If an attacker installs a malicious package, it often comes with scripts or executables designed to execute automatically.
+
+- **List Installed Packages**  
+  - Command: `dpkg -l`  
+  - Scan the list for suspicious or out-of-place entries.
+
+- **Check dpkg Logs**  
+  - Log file location: `/var/log/dpkg.log`  
+  - Use `grep " install " /var/log/dpkg.log` to filter recent installations for anything unusual.
+
+---
+
+#### Malicious Scripts in Package Installations
+
+A package may appear legitimate but include scripts that run on install, often found within the package structure itself.
+
+- **Package Metadata**  
+  - Location: `DEBIAN/control` (inside the package)  
+  - Check for odd descriptions, suspicious authors, or vague versioning.
+
+- **Post-Installation Scripts**  
+  - Location: `DEBIAN/postinst`  
+  - These scripts execute automatically—inspect them for unexpected logic or actions.
+
+- **File Permissions**  
+  - Malicious actors might loosen file permissions to ease execution.  
+  - Use `chmod` to check and correct access rights.
+
+---
+
+#### Key Directories
+
+Certain directories are often abused by attackers for persistence or to hide scripts and tools.
+
+- **System Services**  
+  - Path: `/etc/systemd/system/`  
+  - Look for services that don’t belong or launch processes not tied to the system’s core functions.
+
+- **Cron Jobs**  
+  - Path: `/var/spool/cron/`  
+  - Cron jobs can silently execute malicious scripts at scheduled intervals.
+
+- **Temporary Files**  
+  - Path: `/tmp/`  
+  - Temporary folders are easy to write to—often used to stage files or launch payloads.
+
+---
+
+Linux forensics isn’t just about logs and memory—it’s also about digging into the disk. These areas serve as the forensic equivalent of a crime scene, helping you reconstruct what happened, how, and hopefully, by whom. Always trust, but verify—especially when it comes to what’s hiding deep in your filesystems.
