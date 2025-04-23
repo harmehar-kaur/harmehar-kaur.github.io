@@ -8,7 +8,7 @@ image:
   path: 
   alt: 
 ---
-3	FTK IMAGER
+3	FTK IMAGER for imaging windows systems
 •	It is an open-source data preview and imaging tool which allows the collection of electronically stored information in a forensically sound manner. 
 •	It is advised to avoid having an active connection on the device whose image is to be created by the imager. 
 •	The imager could be used in 2 ways to:
