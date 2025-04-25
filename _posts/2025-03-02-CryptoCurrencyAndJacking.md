@@ -1,28 +1,39 @@
 ---
-title: 
-date: 2025-01-02
-categories: 
-tags: 
-author: 
+title: Cryptocurrency and the Rise of Cryptojacking
+date: 2025-03-02
+categories: [Cyber Security Fundamentals]
+tags: [cryptocurrency, blockchain, mining, cryptojacking, cybersecurity, digital wallets]
+author: Harmehar Kaur
 image:
-  path: 
-  alt: 
+  path: /assets/forensics.jpg
+  alt: Digital wallet and blockchain network illustration
 ---
 
-correct the formatting of the above markdown file and give it a appropriate title and add approprate tags and make the tone conversational as written in blogs also don't put the "part " thing in the title  and follow the content i have written only take things like author harmehar kaur and same for path of image /assets/forensics.jpg and the date would be 2 december 2024 and category for the blog is DFIR and enclose category and tags in sqaure brackets [] . make the location of the artefact a bulleted point so the markdown format you return doesnot break mid blog  
+### 💸 Cryptocurrency: The Digital Gold Rush
 
-Cryptocurrency
-Cryptocurrency is digital money that can be used to buy goods and services, using strong encryption techniques to secure online transactions. Banks, governments and even companies like Microsoft and AT&T are very aware of its importance and are jumping on the cryptocurrency bandwagon!
+Cryptocurrency is digital money designed for the internet age. It can be used to buy goods and services and is secured using advanced encryption techniques that ensure online transactions remain private and tamper-proof. With big players like Microsoft and AT&T getting involved, it’s clear that cryptocurrency is more than just a trend—it’s reshaping the future of finance.
 
-1. Cryptocurrency owners keep their money in encrypted, virtual ‘wallets.’ When a transaction takes place between the owners of two digital wallets, the details are recorded in a decentralized, electronic ledger or blockchain system. This means it is carried out with a degree of anonymity and is self-managed, with no interference from third parties such as central banks or government entities.
+#### How Does It Work?
 
-2. Approximately every ten minutes, special computers collect data about the latest cryptocurrency transactions, turning them into mathematical puzzles to maintain confidentiality.
+1. **Wallet to Wallet:** Cryptocurrency owners store their digital assets in encrypted, virtual ‘wallets.’ When a transaction takes place, it’s recorded on a decentralized electronic ledger known as the **blockchain**. This means the transaction is private, secure, and doesn’t require approval from a central bank or any third party.
 
-These transactions are then verified through a technical and highly complex process known as ‘mining.’ This step typically involves an army of ‘miners’ working on high-end PCs to solve mathematical puzzles and authenticate transactions.
+2. **The Puzzle Process:** Every 10 minutes or so, powerful computers collect transaction data and turn it into complex mathematical puzzles. Solving these puzzles helps secure the network.
 
-3. Once verified, the ledger is updated and electronically copied and disseminated worldwide to anyone belonging to the blockchain network, effectively completing a transaction.
+3. **Mining Magic:** This process of solving puzzles and validating transactions is known as **mining**. Miners—armed with high-powered PCs—race to solve these problems. The first one to succeed gets to verify the transaction and earns a reward in the form of cryptocurrency.
 
-Cryptojacking
-Cryptojacking is an emerging threat that hides on a user’s computer, mobile phone, tablet, laptop or server, using that machine’s resources to 'mine’ cryptocurrencies without the user's consent or knowledge.
+4. **Global Ledger Update:** Once verified, the transaction is added to the blockchain and instantly copied across the entire network. Everyone in the blockchain network gets an updated version of the ledger, which keeps things transparent and secure.
 
-Many victims of cryptojacking didn’t even know they’d been hacked until it was too late!
+---
+
+### ⚠️ Cryptojacking: When Your Device Mines Without You Knowing
+
+As cryptocurrencies gain popularity, a darker side has emerged—**cryptojacking**. This sneaky cyber threat secretly hijacks your computer, smartphone, tablet, or even your servers to mine cryptocurrency... without your permission!
+
+Many users never realize what’s happening until their devices slow down or start acting strangely. By then, the damage may already be done—whether it’s reduced performance, overheating, or an increased electricity bill.
+
+**Stay alert**: If your system suddenly feels sluggish or you notice odd background processes, it might be time to scan for cryptojacking scripts.
+
+
+---
+
+Cryptocurrency might be revolutionizing finance, but it also comes with new risks. The key is staying informed, so you can ride the digital wave safely and securely.
