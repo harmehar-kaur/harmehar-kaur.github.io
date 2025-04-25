@@ -1,5 +1,5 @@
 ---
-title: Getting to Know Cloud Service Models: SaaS, PaaS, and IaaS
+title: "Getting to Know Cloud Service Models: SaaS, PaaS, and IaaS"
 date: 2024-05-19
 categories: [Cloud Concepts]
 tags: [SaaS, PaaS, IaaS, service models, cloud computing, cloud security]
