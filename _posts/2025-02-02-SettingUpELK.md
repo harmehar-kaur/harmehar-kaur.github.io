@@ -5,7 +5,7 @@ categories: [ELK]
 tags: [ELK stack, docker, log analysis, elasticsearch, kibana, logstash, metricbeat, filebeat, APM, fleet, observability, security]
 author: harmehar kaur
 image:
-  path: 
+  path: /assets/forensics.jpg
   alt: 
 ---
 
