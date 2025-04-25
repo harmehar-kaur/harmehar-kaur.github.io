@@ -10,7 +10,7 @@ image:
 ---
 
 I recently found myself struggling to get the full ELK stack running on my student laptop — it's just not built for heavy lifting like this. Luckily, I stumbled across a fantastic two-part blog series on Elastic’s official site, which walks through how to set everything up using Docker. Instead of splitting it, I’ve condensed the process into one post here and added my notes. The full source files, configs, and app examples are available on GitHub:  
-👉 **[Elastic’s GitHub Repository](https://github.com/elastic/stack-docs/tree/main/docs/en/observability/guide/docker)**
+👉 **[Elastic’s GitHub Repository](https://github.com/elkninja/elastic-stack-docker-part-two)**
 
 ---
 
@@ -127,7 +127,7 @@ This Docker-based setup is perfect for local learning, experimenting with integr
 - Always use HTTPS and proper certificate management.
 
 🔗 **Original Guide and GitHub Source**:  
-[Elastic’s Docker ELK Guide on GitHub](https://github.com/elastic/stack-docs/tree/main/docs/en/observability/guide/docker)
+[Elastic’s Docker ELK Guide](https://www.elastic.co/blog/getting-started-with-the-elastic-stack-and-docker-compose)
 
 ---
 
