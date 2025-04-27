@@ -1,4 +1,3 @@
-
 ---
 title: "Understanding Hashes and Cracking with John the Ripper"
 date: 2025-04-27
