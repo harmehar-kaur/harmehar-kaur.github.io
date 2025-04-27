@@ -1,8 +1,8 @@
 ---
 title: "Understanding Hashes and Cracking with John the Ripper"
 date: 2025-04-27
-categories: Cryptography, Penetration Testing
-tags: Hashing, John the Ripper, Cybersecurity, Dictionary Attack, Wordlist
+categories: [Cryptography, Penetration Testing]
+tags: [Hashing, John the Ripper, Cybersecurity, Dictionary Attack, Wordlist]
 author: Harmehar Kaur
 image:
   path: /assets/forensics.jpg
