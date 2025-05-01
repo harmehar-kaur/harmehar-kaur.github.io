@@ -23,80 +23,80 @@ Let’s walk through the key techniques and their sub-techniques used by attacke
 
 ### 1. **Abuse Elevation Control Mechanism (T1548)**
 Methods that circumvent built-in system mechanisms intended to prevent unauthorized privilege elevation.
-- `.001` Setuid and Setgid
-- `.002` Bypass User Account Control
-- `.003` Sudo and Sudo Caching
-- `.004` Elevated Execution with Prompt
-- `.005` Temporary Elevated Cloud Access
-- `.006` TCC Manipulation
+- Setuid and Setgid
+- Bypass User Account Control
+- Sudo and Sudo Caching
+- Elevated Execution with Prompt
+- Temporary Elevated Cloud Access
+- TCC Manipulation
 
 ---
 
-### 2. **Access Token Manipulation (T1134)**
-Attackers manipulate access tokens to operate as different users or processes.
-- `.001` Token Impersonation/Theft
-- `.002` Create Process with Token
-- `.003` Make and Impersonate Token
-- `.004` Parent PID Spoofing
-- `.005` SID-History Injection
+### 2. **Access Token Manipulation **
+Windows use access tolen to determine the ownership of running processes and attackers manipulate access tokens to operate as different users or processes. Copying tokens from the existing processes could be used in token impersonation/theft and creating new process with tokens. In windows any user can use runas to impersonate tokens. active directory fields could also be used to modify access tokens. mitigation of this technique is done by proper management of user as well as privileged accounts. the traces left behind could be detected if there is presence of active directory object modification, command execution OS API execution, process creation, and user account metadata.  
+- Token Impersonation/Theft
+- Create Process with Token
+- Make and impersonate token
+- Parent PID spoofing 
+- SID history injection 
 
 ---
 
 ### 3. **Account Manipulation (T1098)**
 Changing or abusing user accounts to elevate privileges.
-- `.001` Additional Cloud Credentials
-- `.002` Additional Email Delegate Permissions
-- `.003` Additional Cloud Roles
-- `.004` SSH Authorized Keys
-- `.005` Device Registration
-- `.006` Additional Container Cluster Roles
-- `.007` Additional Local or Domain Groups
+- Additional Cloud Credentials
+- Additional Email Delegate Permissions
+- Additional Cloud Roles
+- SSH Authorized Keys
+- Device Registration
+- Additional Container Cluster Roles
+- Additional Local or Domain Groups
 
 ---
 
 ### 4. **Boot or Logon Autostart Execution (T1547)**
 Configuring programs to execute during system boot or user logon.
-- `.001` Registry Run Keys / Startup Folder
-- `.002` Authentication Package
-- `.003` Time Providers
-- `.004` Winlogon Helper DLL
-- `.005` Security Support Provider
-- `.006` Kernel Modules and Extensions
-- `.007` Re-opened Applications
-- `.008` LSASS Driver
-- `.009` Shortcut Modification
-- `.010` Port Monitors
-- `.012` Print Processors
-- `.013` XDG Autostart Entries
-- `.014` Active Setup
-- `.015` Login Items
+- Registry Run Keys / Startup Folder
+- Authentication Package
+- Time Providers
+- Winlogon Helper DLL
+- Security Support Provider
+- Kernel Modules and Extensions
+- Re-opened Applications
+- LSASS Driver
+- Shortcut Modification
+- Port Monitors
+- Print Processors
+- XDG Autostart Entries
+- Active Setup
+- Login Items
 
 ---
 
 ### 5. **Boot or Logon Initialization Scripts (T1037)**
 Using scripts that execute at boot/logon for privilege escalation or persistence.
-- `.001` Logon Script (Windows)
-- `.002` Login Hook
-- `.003` Network Logon Script
-- `.004` RC Scripts
-- `.005` Startup Items
+- Logon Script (Windows)
+- Login Hook
+- Network Logon Script
+- RC Scripts
+- Startup Items
 
 ---
 
 ### 6. **Create or Modify System Process (T1543)**
 Creating or modifying services or daemons to run adversary-controlled code.
-- `.001` Launch Agent
-- `.002` Systemd Service
-- `.003` Windows Service
-- `.004` Launch Daemon
-- `.005` Container Service
+- Launch Agent
+- Systemd Service
+- Windows Service
+- Launch Daemon
+- Container Service
 
 ---
 
 ### 7. **Domain or Tenant Policy Modification (T1484)**
 Changing domain/tenant-wide policies to elevate access.
-- `.001` Group Policy Modification
-- `.002` Trust Modification
+- Group Policy Modification
+- Trust Modification
 
 ---
 
@@ -107,23 +107,23 @@ Breaking out of a container or virtual machine to access the host OS.
 
 ### 9. **Event Triggered Execution (T1546)**
 Using system event triggers to execute code with elevated privileges.
-- `.001` Change Default File Association
-- `.002` Screensaver
-- `.003` WMI Event Subscription
-- `.004` Unix Shell Configuration Modification
-- `.005` Trap
-- `.006` LC_LOAD_DYLIB Addition
-- `.007` Netsh Helper DLL
-- `.008` Accessibility Features
-- `.009` AppCert DLLs
-- `.010` AppInit DLLs
-- `.011` Application Shimming
-- `.012` Image File Execution Options Injection
-- `.013` PowerShell Profile
-- `.014` Emond
-- `.015` Component Object Model Hijacking
-- `.016` Installer Packages
-- `.017` Udev Rules
+- Change Default File Association
+- Screensaver
+- WMI Event Subscription
+- Unix Shell Configuration Modification
+- Trap
+- LC_LOAD_DYLIB Addition
+- Netsh Helper DLL
+- Accessibility Features
+- AppCert DLLs
+- AppInit DLLs
+- Application Shimming
+- Image File Execution Options Injection
+- PowerShell Profile
+- Emond
+- Component Object Model Hijacking
+- Installer Packages
+- Udev Rules
 
 ---
 
@@ -134,54 +134,55 @@ Exploiting software vulnerabilities to run code with elevated permissions.
 
 ### 11. **Hijack Execution Flow (T1574)**
 Redirecting normal execution flow to run attacker-supplied code.
-- `.001` DLL Search Order Hijacking
-- `.004` Dylib Hijacking
-- `.005` Executable Installer File Permissions Weakness
-- `.006` Dynamic Linker Hijacking
-- `.007` Path Interception by PATH Environment Variable
-- `.008` Path Interception by Search Order Hijacking
-- `.009` Path Interception by Unquoted Path
-- `.010` Services File Permissions Weakness
-- `.011` Services Registry Permissions Weakness
-- `.012` COR_PROFILER
-- `.013` KernelCallbackTable
-- `.014` AppDomainManager
+- DLL Search Order Hijacking
+- Dylib Hijacking
+- Executable Installer File Permissions Weakness
+- Dynamic Linker Hijacking
+- Path Interception by PATH Environment Variable
+- Path Interception by Search Order Hijacking
+- Path Interception by Unquoted Path
+- Services File Permissions Weakness
+- Services Registry Permissions Weakness
+- COR_PROFILER
+- KernelCallbackTable
+- AppDomainManager
 
 ---
 
-### 12. **Process Injection (T1055)**
+### 12. **Process Injection**
+This is when adversary executes arbitary code in the address space of another live process which allows access to process's memory, system or network resources, and elevated privileges. this evades detection since is running under a legitimate process. these could be mitigated by managing the privileged account management and behaviour prevention or endpoint. the detection of these could be done using information like file metadata, file modification, module load, OS API execution, process access, process metadata and process modification.  
 Injecting malicious code into legitimate processes.
-- `.001` DLL Injection
-- `.002` PE Injection
-- `.003` Thread Execution Hijacking
-- `.004` Asynchronous Procedure Call
-- `.005` Thread Local Storage
-- `.008` Ptrace System Calls
-- `.009` Proc Memory
-- `.011` Extra Window Memory Injection
-- `.012` Process Hollowing
-- `.013` Process Doppelgänging
-- `.014` VDSO Hijacking
-- `.015` ListPlanting
+- DLL Injection
+- PE Injection
+- Thread Execution Hijacking
+- Asynchronous Procedure Call
+- Thread Local Storage
+- Ptrace System Calls
+- Proc Memory
+- Extra Window Memory Injection
+- Process Hollowing
+- Process Doppelgänging
+- VDSO Hijacking
+- ListPlanting
 
 ---
 
 ### 13. **Scheduled Task/Job (T1053)**
 Abusing scheduling utilities to execute code repeatedly with elevated privileges.
-- `.002` At
-- `.003` Cron
-- `.005` Scheduled Task
-- `.006` Systemd Timers
-- `.007` Container Orchestration Job
+- At
+- Cron
+- Scheduled Task
+- Systemd Timers
+- Container Orchestration Job
 
 ---
 
 ### 14. **Valid Accounts (T1078)**
 Using legitimate account credentials to gain higher access.
-- `.001` Default Accounts
-- `.002` Domain Accounts
-- `.003` Local Accounts
-- `.004` Cloud Accounts
+- Default Accounts
+- Domain Accounts
+- Local Accounts
+- Cloud Accounts
 
 ---
 
