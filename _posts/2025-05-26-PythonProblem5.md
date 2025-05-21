@@ -1,5 +1,5 @@
 ---
-title: Pretty Log Reporting: Errors, Warnings, and Tables
+title: "Pretty Log Reporting: Errors, Warnings, and Tables"
 date: 2025-05-26
 categories: [DFIR, Python]
 tags: [Log Parsing, Terminal Tables, Pretty Output]
