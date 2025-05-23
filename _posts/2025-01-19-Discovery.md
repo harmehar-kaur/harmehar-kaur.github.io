@@ -1,6 +1,6 @@
 ---
-title: "Part 2 - Understanding MITRE ATT&CK Framework: Resource Development"
-date: 2025-01-12
+title: "Part 9 - Understanding MITRE ATT&CK Framework: Discovery"
+date: 2025-01-19
 categories: [MITRE]
 tags: [ATT&CK, cybersecurity, adversary tactics, techniques, MITRE]
 author: Harmehar Kaur
