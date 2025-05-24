@@ -4,7 +4,9 @@ date: 2025-05-21
 categories: [DFIR,Python]
 tags: [Scripting, Python, Evidence, Significance]
 author: Harmehar Kaur
-
+image:
+  path: /assets/Python_Scripting.jpg
+  alt: A visual with python scripting
 ---
 Python Scripting 101 for DFIR Beginners
 Over the past few months, I’ve been diving deeper into Python scripting—something I’ve long known would be essential as I work toward becoming a Digital Forensics and Incident Response (DFIR) professional. While I’ve had the privilege of working closely with DFIR mentors for over a year, this is the first time I’ve started applying scripting in a hands-on, structured way to solve investigative problems.

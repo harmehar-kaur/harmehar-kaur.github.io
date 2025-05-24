@@ -4,6 +4,10 @@ date: 2025-05-26
 categories: [DFIR, Python]
 tags: [Log Parsing, Terminal Tables, Pretty Output]
 author: Harmehar Kaur
+image:
+  path: /assets/Python_Scripting.jpg
+  alt: A visual with python scripting
+  
 ---
 
 ## Pretty Logs, Clean Reports – Filtering by Severity

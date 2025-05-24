@@ -4,6 +4,9 @@ date: 2025-05-25
 categories: [DFIR, Python]
 tags: [Anomaly Detection, Logs, Python]
 author: Harmehar Kaur
+image:
+  path: /assets/Python_Scripting.jpg
+  alt: A visual with python scripting
 ---
 
 ## Catching Spikes in Log Activity with Python

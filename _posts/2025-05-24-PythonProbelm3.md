@@ -4,6 +4,9 @@ date: 2025-05-24
 categories: [DFIR, Python]
 tags: [Auditd, Log Analysis, Python, Linux]
 author: Harmehar Kaur
+image:
+  path: /assets/Python_Scripting.jpg
+  alt: A visual with python scripting
 ---
 
 ## Who Accessed What? Tracking File Access in Logs

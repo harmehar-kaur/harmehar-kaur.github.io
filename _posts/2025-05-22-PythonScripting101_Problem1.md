@@ -4,6 +4,9 @@ date: 2025-05-22
 categories: [DFIR, Python]
 tags: [Scripting, SSH, Logs, Security]
 author: Harmehar Kaur
+image:
+  path: /assets/Python_Scripting.jpg
+  alt: A visual with python scripting
 ---
 
 ## Detecting Suspicious SSH Logins with Python

@@ -4,6 +4,9 @@ date: 2025-05-23
 categories: [DFIR, Python]
 tags: [Scripting, Access Logs, HTTP, Analytics]
 author: Harmehar Kaur
+image:
+  path: /assets/Python_Scripting.jpg
+  alt: A visual with python scripting
 ---
 
 ## Analyzing Web Server Access Logs with Python
